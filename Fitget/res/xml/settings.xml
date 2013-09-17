@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android" android:key="fitgetPref">
+    <PreferenceScreen android:summary="@string/opt_set_mngacts_summary" android:title="@string/opt_set_mngacts" android:key="mngActivities">
+        <PreferenceScreen android:summary="@string/mngacts_add_summary" android:title="@string/mngacts_add" android:key="addActivity"></PreferenceScreen>
+        <PreferenceScreen android:summary="@string/mngacts_edit_summary" android:title="@string/mngacts_edit" android:key="editActivity" android:enabled="false"></PreferenceScreen>
+        <PreferenceScreen android:summary="@string/mngacts_remove_summary" android:title="@string/mngacts_remove" android:key="removeActivity" android:enabled="false"></PreferenceScreen>
+    </PreferenceScreen>
+    
+</PreferenceScreen>

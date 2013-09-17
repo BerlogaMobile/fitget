@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_running"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    tools:context=".FitgetActivity" >
+
+    <TableLayout
+        android:id="@+id/tableLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="@dimen/screen_margin"
+        android:layout_marginRight="@dimen/screen_margin"
+        android:layout_weight="0.3" >
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/const_space"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_label" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/tbl_header_year"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_header" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/tbl_header_month"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_header" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/tbl_header_week"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_header" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/tbl_header_last"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_header" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/const_space"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_label" />
+
+            <TextView
+                android:id="@+id/textYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_year_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_subheader" />
+
+            <TextView
+                android:id="@+id/textMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_month_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_subheader" />
+
+            <TextView
+                android:id="@+id/textWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_week_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_subheader" />
+
+            <TextView
+                android:id="@+id/textLast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_last_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_subheader" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2ln"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/cell_shape" >
+
+            <TextView
+                android:id="@+id/textViewLn1"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:layout_span="5" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/row_top_margin" >
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/tbl_header_distance"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_label" />
+
+            <TextView
+                android:id="@+id/textDistYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal3_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textDistMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textDistWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textDistLast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textViewDist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/const_space"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_label" />
+
+            <TextView
+                android:id="@+id/textViewDist1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_distance"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+
+            <TextView
+                android:id="@+id/textViewDist2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_distance"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+
+            <TextView
+                android:id="@+id/textViewDist3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_distance"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+
+            <TextView
+                android:id="@+id/textViewDist4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_distance"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3ln"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/cell_shape" >
+
+            <TextView
+                android:id="@+id/textViewLn2"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:layout_span="5" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/screen_margin"
+            android:layout_marginTop="@dimen/row_top_margin" >
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/tbl_header_time"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_label" />
+
+            <TextView
+                android:id="@+id/textTimeYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".2"
+                android:text="@string/const_time_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textTimeMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_time_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textTimeWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_time_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textTimeLast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_time_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4ln"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/row_top_margin"
+            android:background="@drawable/cell_shape" >
+
+            <TextView
+                android:id="@+id/textViewLn3"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:layout_span="5" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/row_top_margin" >
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/tbl_header_speed"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_label" />
+
+            <TextView
+                android:id="@+id/textSpeedYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textSpeedMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textSpeedWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textSpeedLast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textViewSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/const_space"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_label" />
+
+            <TextView
+                android:id="@+id/textViewSpeed1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_speed"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+
+            <TextView
+                android:id="@+id/textViewSpeed2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_speed"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+
+            <TextView
+                android:id="@+id/textViewSpeed3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_speed"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+
+            <TextView
+                android:id="@+id/textViewSpeed4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_speed"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5ln"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/cell_shape" >
+
+            <TextView
+                android:id="@+id/textViewLn4"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:layout_span="5" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/row_top_margin" >
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/tbl_header_pace"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_label" />
+
+            <TextView
+                android:id="@+id/textPaceYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textPaceMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textPaceWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textPaceLast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_decimal2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textViewPace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/const_space"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_label" />
+
+            <TextView
+                android:id="@+id/textViewPace1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_pace"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+
+            <TextView
+                android:id="@+id/textViewPace2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_pace"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+
+            <TextView
+                android:id="@+id/textViewPace3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_pace"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+
+            <TextView
+                android:id="@+id/textViewPace4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/m_unit_pace"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_unit" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow6ln"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/cell_shape" >
+
+            <TextView
+                android:id="@+id/textViewLn5"
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:layout_span="5" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/header_margin"
+            android:layout_marginTop="@dimen/row_top_margin" >
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".2"
+                android:text="@string/tbl_header_count"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_label" />
+
+            <TextView
+                android:id="@+id/textCountYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight=".2"
+                android:text="@string/const_integer3_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textCountMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_integer2_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textCountWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_integer1_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+
+            <TextView
+                android:id="@+id/textCountLast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight=".2"
+                android:text="@string/const_integer1_xx"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/tbl_value" />
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1v"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/screen_margin"
+        android:layout_marginRight="@dimen/screen_margin"
+        android:layout_weight="0.7"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/screen_header"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/screen_header_fitget" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/row_bottom_margin"
+            android:layout_marginTop="@dimen/screen_margin"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btnEnglish"
+                style="@style/btn_unselected"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="clickEnglish"
+                android:text="@string/btn_unit_english"
+                android:textAppearance="?android:attr/textAppearanceButton" />
+
+            <Button
+                android:id="@+id/btnMetric"
+                style="@style/btn_selected"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="clickMetric"
+                android:text="@string/btn_unit_metric"
+                android:textAppearance="?android:attr/textAppearanceButton" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/btn_selected"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_stats"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/btn_unselected"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_charts"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button5"
+            style="@style/btn_unselected"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_best"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/textView37"
+            style="@style/screen_footer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/row_bottom_margin"
+            android:text="@string/screen_footer_updated" />
+    </LinearLayout>
+
+</LinearLayout>

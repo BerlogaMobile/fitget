@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="btn_selected">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#44DD22</item>
+        <item name="android:enabled">false</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowRadius">.5</item>
+        <item name="android:shadowDx">.5</item>
+        <item name="android:shadowDy">.5</item>
+     </style>
+     <style name="btn_unselected">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#666666</item>
+        <item name="android:enabled">true</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowRadius">.5</item>
+        <item name="android:shadowDx">.5</item>
+        <item name="android:shadowDy">.5</item>
+     </style>
+     <style name="screen_header">
+        <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
+        <item name="android:textColor">@color/screen_header</item> 
+		<item name="android:background">@color/bg_fitget</item>
+		<item name="android:textStyle">bold</item>
+        <item name="android:shadowRadius">.5</item>
+       	<item name="android:shadowDx">.5</item>
+        <item name="android:shadowDy">.5</item>
+        <item name="android:shadowColor">#000000</item>
+     </style>
+     <style name="screen_footer">
+        <item name="android:textColor">@color/screen_footer</item> 
+        <item name="android:textSize">10sp</item> 
+        </style>
+     
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">My Tracks Fitget</string>
+    <string name="settings_name">Fitget Settings</string>
+    <string name="btn_unit_metric">km</string>
+    <string name="btn_unit_english">miles</string>
+    <string name="screen_header_fitget">MY FITGET</string>
+    <string name="screen_header_running">RUNNING</string>
+    <string name="screen_footer_updated">hh:mm, Mon DD, YYYY</string>
+    
+    <string name="btn_stats">Stats</string>
+    <string name="btn_charts">Charts</string>
+    <string name="btn_best">My Best</string>
+      
+    <string name="tbl_header_year">Year</string>
+    <string name="tbl_header_month">Month</string>
+    <string name="tbl_header_week">Week</string>
+    <string name="tbl_header_last">Last</string>
+
+    <string name="tbl_header_distance">Dist.</string>
+    <string name="tbl_header_time">Time</string>
+    <string name="tbl_header_speed">Speed</string>
+    <string name="tbl_header_pace">Pace</string>
+    <string name="tbl_header_count">Count</string>
+    
+    <string name="m_unit_distance">km</string>
+    <string name="m_unit_time">hh:mm:ss</string>
+    <string name="m_unit_speed">km/h</string>
+    <string name="m_unit_pace">min/km</string>
+    <string name="m_unit_count">days</string>
+    
+    <string name="e_unit_distance">miles</string>
+    <string name="e_unit_speed">mph</string>
+    <string name="e_unit_pace">m/mile</string>
+    
+    <string name="const_space">   </string>
+    <string name="const_year_xx">YYYY</string>
+    <string name="const_month_xx">Mon</string>
+    <string name="const_week_xx">W</string>
+    <string name="const_last_xx">Mon DD</string>
+    <string name="const_time_xx">00:00:00</string>
+    <string name="const_pace_xx">00:00</string>
+    <string name="const_decimal1_xx">0.0</string>
+    <string name="const_decimal2_xx">00.0</string>
+    <string name="const_decimal3_xx">000.0</string>
+    <string name="const_integer1_xx">0</string>
+    <string name="const_integer2_xx">00</string>
+    <string name="const_integer3_xx">000</string>
+    
+    <string name="opt_refresh">Refresh</string>
+    <string name="opt_refresh_short">r</string>
+    <string name="opt_settings">Settings</string>
+    <string name="opt_settings_short">s</string>
+    <string name="opt_share">Share</string>
+    <string name="opt_share_short">h</string>
+    
+    <string name="opt_set_mngacts">Manage Activities</string>
+    <string name="opt_set_mngacts_short">a</string>
+    <string name="opt_set_mngacts_summary">Add, edit, or remove activities. Define activity data source and display preferences.</string>
+    
+    <string name="mngacts_add">Add Activity</string>
+    <string name="mngacts_add_short">a</string>
+    <string name="mngacts_add_summary">Add new activity, define it\'s data source and display preferences.</string>
+    
+    <string name="mngacts_edit">Edit Activity</string>
+    <string name="mngacts_edit_short">e</string>
+    <string name="mngacts_edit_summary">Change existing activity\'s data source and display preferences.</string>
+    
+    <string name="mngacts_remove">Remove Activity</string>
+    <string name="mngacts_remove_short">r</string>
+    <string name="mngacts_remove_summary">Remove existing activity so it is no longer tracked.</string>
+    
+</resources>

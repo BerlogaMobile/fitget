@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="screen_header">#EEEEEE</color>
+    <color name="screen_footer">#000000</color>
+    <color name="tbl_header">#000000</color>
+    <color name="tbl_label">#000000</color>
+    <color name="tbl_value">#000000</color>
+    <color name="tbl_unit">#888888</color>
+    <color name="tbl_subheader">#3311FF</color>
+    <color name="btn_selected">#44DD22</color>
+    <color name="btn_unselected">#000000</color>
+    <color name="bg_fitget">#FED94D</color>
+    <color name="bg_running">#96AB28</color>
+</resources>

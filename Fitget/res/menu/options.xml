@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  
+    <item android:id="@+id/optRefresh" 
+        android:numericShortcut="1" 
+        android:icon="@drawable/ic_menu_refresh"
+        android:alphabeticShortcut="@string/opt_refresh_short" 
+        android:title="@string/opt_refresh" />
+    
+    <item android:id="@+id/optSettings"
+        android:numericShortcut="2" 
+        android:icon="@drawable/ic_menu_manage"
+        android:alphabeticShortcut="@string/opt_settings_short" 
+        android:title="@string/opt_settings" >
+
+    </item>
+    
+    <item android:id="@+id/optShare" 
+        android:numericShortcut="3" 
+        android:icon="@drawable/ic_menu_share"
+        android:alphabeticShortcut="@string/opt_share_short" 
+        android:title="@string/opt_share"/>
+       
+</menu>
