@@ -5,7 +5,7 @@
     <string name="settings_name">Fitget Settings</string>
     <string name="btn_unit_metric">km</string>
     <string name="btn_unit_english">miles</string>
-    <string name="screen_header_fitget">MY FITGET</string>
+    <string name="screen_header_fitget">RUNNING</string>
     <string name="screen_header_running">RUNNING</string>
     <string name="screen_footer_updated">hh:mm, Mon DD, YYYY</string>
     

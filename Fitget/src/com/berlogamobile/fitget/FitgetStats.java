@@ -6,6 +6,7 @@ public class FitgetStats {
 	private Integer month;
 	private Integer week;
 	private java.util.Date last;
+	private java.util.Date updated;
 	
 	private Double distanceYear;
 	private Double distanceMonth;
@@ -152,6 +153,12 @@ public class FitgetStats {
 	}
 	public void setCountLast(Integer countLast) {
 		this.countLast = countLast;
+	}
+	public java.util.Date getUpdated() {
+		return updated;
+	}
+	public void setUpdated(java.util.Date updated) {
+		this.updated = updated;
 	}
 	
 }

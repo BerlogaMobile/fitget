@@ -2,12 +2,16 @@ package com.berlogamobile.fitget;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import com.pras.*;
+import java.util.ArrayList;
+import java.util.Locale;
 
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Looper;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,10 +20,20 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.berlogamobile.fitget.R;
+import com.pras.SpreadSheet;
+import com.pras.SpreadSheetFactory;
+import com.pras.WorkSheetCell;
+import com.pras.WorkSheetRow;
+import com.pras.WorkSheet;
+
 
 public class FitgetActivity extends Activity {
 
-	FitgetStats fStats;
+	FitgetStats fStats = new FitgetStats();
+	ArrayList<SpreadSheet> spreadSheets;
+	ArrayList<WorkSheet> workSheets;
+	SpreadSheet sp;
+	WorkSheet wk;
 	
     /** Called when the activity is first created. */
     @Override
@@ -28,11 +42,12 @@ public class FitgetActivity extends Activity {
         setContentView(R.layout.main);
         
       
-        
-        fStats = this.loadFitgetStats();
+    	Toast.makeText(this, "Reading from Google Docs... ", Toast.LENGTH_LONG).show();
+       
+        this.loadFitgetStats();
 
         
-        this.setStatsView(fStats, true);
+        //this.setStatsView(fStats, true);
     	
        
     }
@@ -78,9 +93,13 @@ public class FitgetActivity extends Activity {
 	    	t = (TextView)findViewById(R.id.textWeek);
 	    	t.setText(fStats.getWeek().toString());
 	    	
-	    	SimpleDateFormat sdf = new SimpleDateFormat("MMM d");
+	    	SimpleDateFormat sdf = new SimpleDateFormat("MMM d", Locale.US);
 	    	t = (TextView)findViewById(R.id.textLast);
 	    	t.setText(sdf.format(fStats.getLast()));
+	    	
+	    	sdf= new SimpleDateFormat("hh:mm:ss, MMM d, yyyy", Locale.US);
+	    	t = (TextView)findViewById(R.id.textUpdatedTimestamp);
+	    	t.setText(sdf.format(fStats.getUpdated()));
 	    	
 	    	double mult;
 	    	
@@ -232,8 +251,253 @@ public class FitgetActivity extends Activity {
 	    
     }
     
+    private void loadFitgetStats() {
+        // Init and Read SpreadSheet list from Google Server
+        runOnUiThread(new Runnable(){
+        	public void run(){
+        		new DataLoadingTask().execute((Object)null);
+        	}
+        });
+
+    }
     
-    private FitgetStats loadFitgetStats() {
+	private class DataLoadingTask extends AsyncTask{
+
+		//Dialog dialog;
+		
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			/*
+			dialog = new Dialog(FitgetActivity.this);
+			dialog.setTitle("Please wait");
+			TextView tv = new TextView(FitgetActivity.this.getApplicationContext());
+			tv.setText("Reading SpreadSheet list from your account...");
+			dialog.setContentView(tv);
+			dialog.show();
+			*/
+		}
+
+		@Override
+		protected Object doInBackground(Object... params) {
+			// Read Spread Sheet list from the server.
+			
+			// Android Phone Authenticate Line
+			//SpreadSheetFactory factory = SpreadSheetFactory.getInstance(new AndroidAuthenticator(GSSAct.this));
+			
+			// AVD BEGIN
+			SpreadSheetFactory factory = SpreadSheetFactory.getInstance("your.account@gmail.com", "Your-Password");
+		    spreadSheets = factory.getAllSpreadSheets();
+		    // AVD END
+		    
+		    
+		    
+			//Looper.myLooper().prepare();
+			
+			// Android Phone Factory Line
+			//spreadSheets = factory.getAllSpreadSheets(true, "World", false);
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(Object result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			//if(dialog.isShowing()) dialog.cancel();
+			
+			if(spreadSheets == null || spreadSheets.size() == 0){
+		    	Toast.makeText(FitgetActivity.this.getApplicationContext(), "No spreadsheets exist in your account...", Toast.LENGTH_LONG).show();
+		    }
+		    else{
+		    	for(int i=0; i<spreadSheets.size(); i++){
+		    		sp = spreadSheets.get(i);
+		    		if ("My Tracks-running".equals(sp.getTitle())){
+				    	//Toast.makeText(FitgetActivity.this.getApplicationContext(), "Found Activity SpreadSheet: "+ sp.getTitle(), Toast.LENGTH_LONG).show();
+				    	//int spID = i;
+						//SpreadSheetFactory factory = SpreadSheetFactory.getInstance();
+						// Read from local Cache
+						//ArrayList<SpreadSheet> sps = factory.getAllSpreadSheets(false);
+						//SpreadSheet sp = sps.get(spID); 
+						new WorksheetLoadingTask().execute((Object)null);
+						break;
+		    		}
+		    	}
+		    	
+		    }
+		}
+
+	}
+
+ 
+	private class WorksheetLoadingTask extends AsyncTask{
+
+		//Dialog dialog;
+		
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			/*
+			dialog = new Dialog(FitgetActivity.this);
+			dialog.setTitle("Please wait");
+			TextView tv = new TextView(FitgetActivity.this.getApplicationContext());
+			tv.setText("Reading WorkSheet list from the SpreadSheet...");
+			dialog.setContentView(tv);
+			dialog.show();
+	    	Toast.makeText(FitgetActivity.this.getApplicationContext(), "Processing Spreadsheet:"+sp.getTitle(), Toast.LENGTH_LONG).show();
+	    	*/
+		}
+
+		@Override
+		protected Object doInBackground(Object... params) {
+			// Read Spread Sheet list from the server.
+			workSheets = sp.getAllWorkSheets();
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(Object result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			//if(dialog.isShowing()) dialog.cancel();
+			
+			if(workSheets == null || workSheets.size() == 0){
+		    	Toast.makeText(FitgetActivity.this.getApplicationContext(), "No WorkSheets exist in your account...", Toast.LENGTH_LONG).show();
+		    }
+		    else{
+		    	//Toast.makeText(FitgetActivity.this.getApplicationContext(), "WorkSheet Count:"+workSheets.size(), Toast.LENGTH_LONG).show();
+		    	for(int j=0; j<workSheets.size(); j++){
+		    		wk = workSheets.get(j);
+			    	//Toast.makeText(FitgetActivity.this.getApplicationContext(), "WorkSheet:"+sp.getTitle()+"->"+wk.getTitle(), Toast.LENGTH_LONG).show();
+		    		if ("FitgetSample".equals(wk.getTitle())){
+				    	//Toast.makeText(FitgetActivity.this.getApplicationContext(), "Found Data WorkSheet: "+ wk.getTitle(), Toast.LENGTH_LONG).show();
+						new MetricsLoadingTask().execute((Object)null);
+						break;
+		    		}
+		    	}
+		    }
+		}
+	}
+
+	private class MetricsLoadingTask extends AsyncTask{
+
+		ArrayList<WorkSheetRow> rows;
+		String[] cols;
+		//Dialog dialog;
+		
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			/*
+			dialog = new Dialog(FitgetActivity.this);
+			dialog.setTitle("Please wait");
+			TextView tv = new TextView(FitgetActivity.this.getApplicationContext());
+			tv.setText("Reading Workout Stats...");
+			dialog.setContentView(tv);
+			dialog.show();
+			*/
+		}
+
+		@Override
+		protected Object doInBackground(Object... params) {
+			cols = wk.getColumns();
+			rows = wk.getData(false);
+			
+			return null;
+		}
+		
+		@Override
+		protected void onPostExecute(Object result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			//if(dialog.isShowing()) dialog.cancel();
+			
+			if(rows == null || rows.size() == 0){
+		    	Toast.makeText(FitgetActivity.this.getApplicationContext(), "No data was found in sheet "+wk.getTitle(), Toast.LENGTH_LONG).show();
+				return;
+			}
+			
+			StringBuffer record = new StringBuffer();
+			
+			
+			if(cols != null){
+				record.append("Columns: ["+ cols +"]\n");
+			}
+			record.append("Number of Records: "+ rows.size()+"\n");
+			
+
+	    	for(int i=0; i<rows.size(); i++){
+				WorkSheetRow row = rows.get(i);
+				record.append("[ Row ID "+ (i + 1) +" ]: ");
+				
+				ArrayList<WorkSheetCell> cells = row.getCells();
+				record.append(" Num of cells = "+ cells.size() +" ]\n");
+				for(int j=0; j<cells.size(); j++){
+					WorkSheetCell cell = cells.get(j);
+					record.append(cell.getName() +" = "+ cell.getValue() +"\n"); 
+					switch (i) {
+					case 0:
+						if ("year".equals(cell.getName())){
+							fStats.setYear(Integer.valueOf(cell.getValue()));
+						} else if("month".equals(cell.getName())){
+							fStats.setMonth(Integer.valueOf(cell.getValue()));
+						} else if("week".equals(cell.getName())){
+							fStats.setWeek(Integer.valueOf(cell.getValue()));
+						} else if("last".equals(cell.getName())){
+							try {
+								fStats.setLast(new SimpleDateFormat("MM/dd/yyyy", Locale.US).parse(cell.getValue()));	
+							} catch (Exception ex) {
+								System.out.println("Error converting Date: "+cell.getValue());
+								System.out.println(ex.getMessage());
+							}
+						}
+						break;
+					case 1:
+						if ("year".equals(cell.getName())){
+							fStats.setDistanceYear(Double.valueOf(cell.getValue()));
+						} else if("month".equals(cell.getName())){
+							fStats.setDistanceMonth(Double.valueOf(cell.getValue()));
+						} else if("week".equals(cell.getName())){
+							fStats.setDistanceWeek(Double.valueOf(cell.getValue()));
+						} else if("last".equals(cell.getName())){
+							fStats.setDistanceLast(Double.valueOf(cell.getValue()));							
+						}
+						break;
+					case 2:
+						if ("year".equals(cell.getName())){
+							fStats.setTimeYear(new TimeCalculator(cell.getValue()));
+						} else if("month".equals(cell.getName())){
+							fStats.setTimeMonth(new TimeCalculator(cell.getValue()));
+						} else if("week".equals(cell.getName())){
+							fStats.setTimeWeek(new TimeCalculator(cell.getValue()));
+						} else if("last".equals(cell.getName())){
+							fStats.setTimeLast(new TimeCalculator(cell.getValue()));
+						}
+						break;
+					case 3:
+						if ("year".equals(cell.getName())){
+							fStats.setCountYear(Integer.valueOf(cell.getValue()));
+						} else if("month".equals(cell.getName())){
+							fStats.setCountMonth(Integer.valueOf(cell.getValue()));
+						} else if("week".equals(cell.getName())){
+							fStats.setCountWeek(Integer.valueOf(cell.getValue()));
+						} else if("last".equals(cell.getName())){
+							fStats.setCountLast(Integer.valueOf(cell.getValue()));							
+						}
+						break;
+					}
+				}
+			}
+	    	fStats.setUpdated(new java.util.Date());
+			FitgetActivity.this.setStatsView(fStats,true);
+			System.out.println(record.toString());
+	    	Toast.makeText(FitgetActivity.this.getApplicationContext(), "Your stats have been updated", Toast.LENGTH_LONG).show();
+		}
+	}
+   
+    private FitgetStats loadSampleFitgetStats() {
     	FitgetStats fStats = new FitgetStats();
     	
     	fStats.setYear(2013);
@@ -255,6 +519,8 @@ public class FitgetActivity extends Activity {
     	fStats.setCountMonth(4);
     	fStats.setCountWeek(1);
     	fStats.setCountLast(1);
+    	
+    	fStats.setUpdated(new java.util.Date());
 
     	return fStats;
     }

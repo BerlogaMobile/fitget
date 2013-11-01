@@ -37,6 +37,15 @@ public class TimeCalculator {
 		this.seconds = (int) Math.floor((totalMinutes-this.minutes)*60);
 	}
 
+	public TimeCalculator(String value) {
+		// value is a String in format "HH:MM:SS"
+		String delims = "[:]";
+		String [] s = value.split(delims);
+		this.hours= Integer.valueOf(s[0]).intValue();
+		this.minutes= Integer.valueOf(s[1]).intValue();
+		this.seconds= Integer.valueOf(s[2]).intValue();
+	}
+
 	public int getHours(){
 		return this.hours;
 	}

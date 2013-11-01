@@ -706,7 +706,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/row_bottom_margin"
-        android:layout_above="@+id/textView37" android:layout_marginLeft="@dimen/screen_margin" android:layout_marginRight="@dimen/screen_margin">
+        android:layout_above="@+id/textUpdatedTimestamp" android:layout_marginLeft="@dimen/screen_margin" android:layout_marginRight="@dimen/screen_margin">
 
         <Button
             android:id="@+id/button3"
@@ -739,7 +739,7 @@
     </LinearLayout>
 	    	    	    
 	    <TextView
-	        android:id="@+id/textView37"
+	        android:id="@+id/textUpdatedTimestamp"
 	        style="@style/screen_footer"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
